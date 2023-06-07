@@ -29,7 +29,7 @@ export default function SingleItem({ params }) {
             <p>{item.buying_price }</p>
 
             <button type="button" onClick={() => router.push('/items')}>
-              back
+            &larr; back to items
             </button>
           </div>
         )

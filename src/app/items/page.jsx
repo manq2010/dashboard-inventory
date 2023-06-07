@@ -12,7 +12,11 @@ export default function Items() {
     return res.data.data
 }
 
-  const { data, isLoading, isError } = useQuery({queryKey: ['items'], queryFn: fetchItems})
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ['items'], 
+    queryFn: fetchItems, 
+    keepPreviousData: true,
+  })
   const router = useRouter();
 
   console.log("data:", data)

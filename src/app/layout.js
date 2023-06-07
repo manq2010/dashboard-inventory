@@ -1,4 +1,5 @@
 import ReactQueryWrapper from './ReactQueryWrapper'
+import Footer from './components/shared/Footer'
 import Header from './components/shared/Header'
 import './globals.css'
 import { Inter } from 'next/font/google'
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           <ReactQueryWrapper>
             {children}
           </ReactQueryWrapper>
+          <Footer />
           </body>
       </html>
   )
