@@ -5,7 +5,7 @@ export default function Header() {
     <header>
         <ul>
           <li>
-              <Link href={"/"}>Overview</Link>
+              <Link prefetch={false} href={"/"}>Overview</Link>
           </li>
           <li>
               <Link href={"/analytics"}>Analytics</Link>
