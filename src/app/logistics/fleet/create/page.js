@@ -4,10 +4,10 @@ export default function page() {
   return (
     <div>
       <h3>
-      About us page
+        Create single fleet page
       </h3> 
 
-      <Link href="/">&larr; Back Home</Link>
+      <Link href="/logistics/fleet">&larr; Back to Fleet</Link>
     </div>
   );
 }
