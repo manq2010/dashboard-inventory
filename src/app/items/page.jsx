@@ -17,9 +17,10 @@ export default function Items() {
     queryFn: fetchItems, 
     keepPreviousData: true,
   })
+
   const router = useRouter();
 
-  console.log("data:", data)
+  // console.log("data:", data)
 
   return (
     <div>

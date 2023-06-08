@@ -4,11 +4,12 @@ import axios from "axios";
 
 
 const useAxios = () => {
-//   const { token } = useSelector((state) => state.auth);
+  
+  //   const { token } = useSelector((state) => state.auth);
+  const token = process.env.NEXT_PUBLIC_TOKEN;
   axios.defaults.baseURL = process.env.NEXT_PUBLIC_API_URL;
-  // axios.defaults.withCredentials = true;
-//   axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-//   console.log("CHECK Token status, DEV mode:", token);
+  axios.defaults.withCredentials = true;
+  axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
   return { axios };
 };
