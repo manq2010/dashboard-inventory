@@ -1,9 +1,9 @@
 'use client'
 
-
 import { useRouter } from 'next/navigation';
 import useAxios from "../../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import DashboardLayout from '@/app/components/dashboard/layout';
 
 export default function SingleItem({ params }) {
   const { axios } = useAxios();
@@ -17,7 +17,7 @@ export default function SingleItem({ params }) {
   const { data = {} , isLoading, isError } = useQuery({queryKey: ['item'], queryFn: fetchItems})
   const { item } = data
   return (
-    <div>
+    <DashboardLayout>
       {
         item && (
           <div>
@@ -34,6 +34,6 @@ export default function SingleItem({ params }) {
           </div>
         )
       }
-    </div>
+    </DashboardLayout>
   );
 }

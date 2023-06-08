@@ -1,8 +1,13 @@
+import DashboardLayout from '@/app/components/dashboard/layout';
 
-export default function Blog() {
+export const metadata = {
+  title: 'Blog',
+}
+
+export default function BlogPage() {
   return (
-    <div>
+    <DashboardLayout>
       <h2>Title listing</h2>
-    </div>
+    </DashboardLayout>
   );
 }

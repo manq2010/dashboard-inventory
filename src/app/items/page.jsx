@@ -3,8 +3,9 @@
 import { useRouter } from 'next/navigation';
 import useAxios from "../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
+import DashboardLayout from '@/app/components/dashboard/layout';
 
-export default function Items() {
+export default function ItemsPage() {
   const { axios } = useAxios();
 
   const fetchItems = async() => {
@@ -20,13 +21,11 @@ export default function Items() {
 
   const router = useRouter();
 
-  // console.log("data:", data)
-
   return (
-    <div>
+    <DashboardLayout>
       <h1>Item Listing</h1>
 
-      { isLoading && <p>Loading...</p> }
+      {/* { isLoading && <p>Loading...</p> } */}
 
     <ul>
       {
@@ -39,6 +38,6 @@ export default function Items() {
         ))
       }
       </ul>
-    </div>
+    </DashboardLayout>
   );
 }

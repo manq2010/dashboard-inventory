@@ -5,10 +5,11 @@ import { styled, useTheme } from '@mui/material/styles';
 import { useRouter } from 'next/navigation';
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/solid';
 import { ChevronUpDownIcon } from '@heroicons/react/24/solid';
+import { ChevronLeftIcon } from '@heroicons/react/24/solid';
+import { ChevronRightIcon } from '@heroicons/react/24/solid';
 import IconButton from '@mui/material/IconButton';
 // import MenuIcon from '@mui/material';
-// import ChevronLeftIcon from '@mui/material/ChevronLeftIcon';
-// import ChevronRightIcon from '@mui/material/ChevronRightIcon';
+
 import {
     Box,
     Button,
@@ -62,7 +63,7 @@ export default function SideNav() {
   >
     <DrawerHeader>
         <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'ltr' ? 'close' : 'open'}
+            {theme.direction === 'ltr' ? <ChevronLeftIcon class="h-6 w-6 text-blue-500"/> : <ChevronRightIcon class="h-6 w-6 text-blue-500" />}
           </IconButton>
         </DrawerHeader>
         <Divider />

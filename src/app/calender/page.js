@@ -1,15 +1,16 @@
 "use client"
 
+import DashboardLayout from '@/app/components/dashboard/layout';
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from '@fullcalendar/interaction'
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline'
 import timeGridPlugin from '@fullcalendar/timegrid'
 
-export default function page() {
+export default function CalenderPage() {
 
   return (
-    <main>
+    <DashboardLayout>
        <div className='calendar-container'>
         <FullCalendar
           plugins={[
@@ -21,7 +22,7 @@ export default function page() {
           headerToolbar={{
             left: 'prev,next today',
             center: 'title',
-            right: 'resourceTimelineWeek,dayGridMonth,timeGridWeek'
+            right: 'resourceTimelineDay,dayGridMonth,timeGridWeek'
           }}
           initialView='dayGridMonth'
           nowIndicator={true}
@@ -39,7 +40,7 @@ export default function page() {
         />
       </div>
 
-    </main>
+    </DashboardLayout>
   );
 }
 

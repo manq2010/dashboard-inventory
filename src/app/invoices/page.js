@@ -1,13 +1,18 @@
 import Link from 'next/link'
+import DashboardLayout from '@/app/components/dashboard/layout';
 
-export default function page() {
+export const metadata = {
+  title: 'Invoices',
+}
+
+export default function InvoicesPage() {
   return (
-    <div>
+    <DashboardLayout>
       <h3>
         Invoices page
       </h3> 
 
       <Link href="/">&larr; Back Home</Link>
-    </div>
+    </DashboardLayout>
   );
 }
