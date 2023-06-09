@@ -1,17 +1,24 @@
 "use client"
 
 import { useRouter } from 'next/navigation';
-import useAxios from "../hooks/useAxios";
+// import useAxios from "../hooks/useAxios";
 import { useQuery } from "@tanstack/react-query";
 import DashboardLayout from '@/app/components/dashboard/layout';
+import getAllItems from '@/app/lib/getAllItems';
 
 export default function ItemsPage() {
-  const { axios } = useAxios();
+//   const { axios } = useAxios();
 
-  const fetchItems = async() => {
-    const res = await axios.get('/items')
-    return res.data.data
+//   const fetchItems = async() => {
+//     const res = await axios.get('/items')
+//     return res.data.data
+// }
+
+const fetchItems = async() => {
+  const items = await getAllItems();
+  return items
 }
+
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ['items'], 
@@ -21,8 +28,8 @@ export default function ItemsPage() {
 
   const router = useRouter();
 
-  return (
-    <DashboardLayout>
+  const content = (
+    <>
       <h1>Item Listing</h1>
 
       {/* { isLoading && <p>Loading...</p> } */}
@@ -38,6 +45,12 @@ export default function ItemsPage() {
         ))
       }
       </ul>
+    </>
+  )
+
+  return (
+    <DashboardLayout>
+      {content}
     </DashboardLayout>
   );
 }
