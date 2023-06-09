@@ -22,7 +22,7 @@ export const items = [
     path: '/',
     icon: (
 
-        <ChartBarIcon className="h-6 w-6 text-gray-500"/>
+        <ChartBarIcon className="h-6 w-6"/>
       
     )
   },
@@ -30,98 +30,98 @@ export const items = [
     title: 'Analytics',
     path: '/analytics',
     icon: (
-        <ChartPieIcon className="h-6 w-6 text-gray-500"/>
+        <ChartPieIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Customers',
     path: '/customers',
     icon: (
-        <UserGroupIcon className="h-6 w-6 text-gray-500"/>
+        <UserGroupIcon className="h-6 w-6"/>
     )
   },
   {
       title: 'Items',
       path: '/items',
       icon: (
-        <ShoppingBagIcon className="h-6 w-6 text-gray-500"/>
+        <ShoppingBagIcon className="h-6 w-6"/>
     )
 },
 {
   title: 'Rentals',
   path: '/rentals',
   icon: (
-      <QueueListIcon className="h-6 w-6 text-gray-500"/>
+      <QueueListIcon className="h-6 w-6"/>
   )
 },
   {
     title: 'Account',
     path: '/account',
     icon: (
-        <UserIcon className="h-6 w-6 text-gray-500"/>
+        <UserIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Orders',
     path: '/orders',
     icon: (
-        <ReceiptPercentIcon className="h-6 w-6 text-gray-500"/>
+        <ReceiptPercentIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Invoices',
     path: '/invoices',
     icon: (
-        <BanknotesIcon className="h-6 w-6 text-gray-500"/>
+        <BanknotesIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Logistics',
     path: '/logistics',
     icon: (
-        <TruckIcon className="h-6 w-6 text-gray-500"/>
+        <TruckIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Blog',
     path: '/blog',
     icon: (
-        <HashtagIcon className="h-6 w-6 text-gray-500"/>
+        <HashtagIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Kanban',
     path: '/kanban',
     icon: (
-        <BookOpenIcon className="h-6 w-6 text-gray-500"/>
+        <BookOpenIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Chat',
     path: '/chat',
     icon: (
-        <ChatBubbleLeftRightIcon className="h-6 w-6 text-gray-500"/>
+        <ChatBubbleLeftRightIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Calender',
     path: '/calender',
     icon: (
-        <CalendarDaysIcon className="h-6 w-6 text-gray-500"/>
-    )
-  },
-  {
-    title: 'Login',
-    path: '/auth/login',
-    icon: (
-        <LockClosedIcon className="h-6 w-6 text-gray-500"/>
-    )
-  },
-  {
-    title: 'Register',
-    path: '/auth/register',
-    icon: (
-        <UserPlusIcon className="h-6 w-6 text-gray-500"/>
+        <CalendarDaysIcon className="h-6 w-6"/>
     )
   }
+  // {
+  //   title: 'Login',
+  //   path: '/auth/login',
+  //   icon: (
+  //       <LockClosedIcon className="h-6 w-6"/>
+  //   )
+  // },
+  // {
+  //   title: 'Register',
+  //   path: '/auth/register',
+  //   icon: (
+  //       <UserPlusIcon className="h-6 w-6"/>
+  //   )
+  // }
 ];

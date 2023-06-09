@@ -10,7 +10,7 @@ export default function Layout({ children }) {
     <>
       <TopNav />
       <SideNav />
-      <div className='w-full flex-auto flex-col pt-[64px] pl-[160px]'>
+      <div className='w-full flex-auto flex-col pt-[64px] pl-[200px]'>
         <div className='w-full flex-auto flex-col'>
           {children}
           <Footer />

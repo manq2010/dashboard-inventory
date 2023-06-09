@@ -32,7 +32,7 @@ export default function TopNav() {
         >
             <Stack alignItems="center" direction="row" spacing={2}> 
                 <Link href={"/"} className="inline-flex">
-                    <Avatar   Avatar sx={{ 
+                    <Avatar sx={{ 
                         color: 'primary.dark',
                         backgroundColor: 'common.white',
                         width: 50, 

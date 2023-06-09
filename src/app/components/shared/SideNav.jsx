@@ -1,9 +1,11 @@
 "use client"
 
-import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 import {
     Box,
-    Button,
+    ButtonBase,
+    Chip,
     Divider,
     Drawer,
     Stack,
@@ -16,46 +18,102 @@ import {
   } from '@mui/material';
 import { Scrollbar } from './ScrollBar';
 import { items } from './config';
-import Link from 'next/link';
-import { SideNavItem } from './SideNavItem';
 
 const TOP_NAV_HEIGHT = 64;
-const SIDE_NAV_WIDTH = 160;
+const SIDE_NAV_WIDTH = 200;
 
 export default function SideNav() {
-  // const pathname = usePathname();
-  
-  const active =  false;
-  
+  const pathname = usePathname();
+ 
   const content = (
-    <Scrollbar 
+    <>
+    <Scrollbar
+    forceVisible={true}
+    autoHide={false}
+    scrollbarMinSize={20}
+    // scrollbarMaxSize={300}
+    // style={{ maxHeight: 300 }}
     sx={{
-      height: '100%',
+      height: '75%',
       '& .simplebar-content': {
         height: '100%'
       },
-      '& .simplebar-scrollbar:before': {
-        background: 'neutral.400'
+      '& .simplebar-scrollbar::before': {
+        background: 'neutral.400',
+        transitionDelay: '1s',
       }
     }}>
-         <Box
-        sx={{
-          display: 'flex',
-          flexDirection: 'column',
-          height: '100%'
-        }}
-      >
-        <Box sx={{ p: 3 }}>
-          <Box
+
+      <List sx={{ width: '100%' }}>
+        {items.map((item) => {
+          const active = item.path ? (pathname === item.path) : false;
+          
+          return (
+            <Link key={item.path} href={item.path}>
+            <ButtonBase
             sx={{
               alignItems: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.04)',
+              borderRadius: 1,
+              display: 'flex',
+              justifyContent: 'flex-start',
+              pl: '16px',
+              pr: '16px',
+              py: '6px',
+              textAlign: 'left',
+              width: '100%'
+            }}
+          >
+            {item.icon && (
+              <Box
+                component="span"
+                sx={{
+                  alignItems: 'center',
+                  color: 'neutral.400',
+                  display: 'inline-flex',
+                  justifyContent: 'center',
+                  mr: 2,
+                  ...(active && {
+                    color: 'primary.main'
+                  })
+                }}
+              >
+                {item.icon}
+              </Box>
+            )}
+              <Box
+                component="span"
+                sx={{
+                  color: 'neutral.400',
+                  flexGrow: 1,
+                  fontSize: 16,
+                  fontWeight: 500,
+                  lineHeight: '24px',
+                  whiteSpace: 'nowrap',
+                  ...(active && {
+                    color: 'primary.main'
+                  })
+                }}
+              >
+                {item.title}
+              </Box>
+            </ButtonBase>
+            </Link>
+          );
+        })}
+        </List>
+      </Scrollbar>
+      <Divider sx={{ color: 'neutral.400' }} />
+      <Box
+            sx={{
+              alignItems: 'center',
               borderRadius: 1,
               cursor: 'pointer',
               display: 'flex',
               justifyContent: 'space-between',
-              mt: 2,
-              p: '12px'
+              // m: 1,
+              p: '20px',
+              fontSize: 15,
+              fontWeight: 500,
             }}
           >
             <div>
@@ -63,126 +121,31 @@ export default function SideNav() {
                 color="inherit"
                 variant="subtitle1"
               >
-                Devias
-              </Typography>
-              <Typography
-                color="neutral.400"
-                variant="body2"
-              >
-                Production
+                Log-out
               </Typography>
             </div>
           </Box>
-        </Box>
-        <Divider sx={{ borderColor: 'neutral.700' }} />
-        <Box
-          component="nav"
-          sx={{
-            flexGrow: 1,
-            px: 2,
-            py: 3
-          }}
-        >
-          <Stack
-            component="ul"
-            spacing={0.5}
-            sx={{
-              listStyle: 'none',
-              p: 0,
-              m: 0
-            }}
-          >
-            {items.map((item) => {
-              // const active = item.path ? (pathname === item.path) : false;
-              
-                <SideNavItem
-                  active={active}
-                  disabled={item.disabled}
-                  external={item.external}
-                  icon={item.icon}
-                  key={item.title}
-                  path={item.path}
-                  title={item.title}
-                />
-            })}
-          </Stack>
-        </Box>
-        {/* <Divider sx={{ borderColor: 'neutral.700' }} /> */}
-      </Box>
-    </Scrollbar>
+    </>
   )
-
+  
   return (
-    // <Drawer
-    //   open
-    //   variant="permanent"
-    //   PaperProps={{
-    //     sx: {
-    //       backgroundColor: 'background.default',
-    //       display: 'flex',
-    //       flexDirection: 'column',
-    //       height: `calc(100% - ${TOP_NAV_HEIGHT}px)`,
-    //       p: 1,
-    //       top: TOP_NAV_HEIGHT,
-    //       width: SIDE_NAV_WIDTH,
-    //       zIndex: 50
-    //     }
-    //   }}
-    // >
-    //   <List sx={{ width: '100%' }}>
-    //     {items.map((item) => {
-    //     //   const active = matchPath({ path: item.href, end: true }, location.pathname);
-    //       return (
-    //         <Link key={item.href} href={item.path}>
-    //         <ListItem
-    //           disablePadding
-    //           sx={{
-    //             flexDirection: 'column',
-    //             px: 2,
-    //             py: 1.5
-    //           }}
-    //         >
-    //           <ListItemIcon
-    //             sx={{
-    //               minWidth: 'auto',
-    //             //   color: active ? 'primary.main' : 'neutral.400'
-    //             }}
-    //           >
-    //             {item.icon}
-    //           </ListItemIcon>
-    //           <ListItemText
-    //             primary={item.title}
-    //             primaryTypographyProps={{
-    //               variant: 'caption',
-    //               sx: {
-    //                 // color: active ? 'primary.main' : 'text.secondary'
-    //               }
-    //             }}
-    //           />
-    //         </ListItem>
-    //         </Link>
-    //       );
-    //     })}
-    //   </List>
-    // </Drawer>
-
     <Drawer
-    anchor="left"
-    // onClose={onClose}
-    // open={open}
-    open
-    PaperProps={{
-      sx: {
-        backgroundColor: 'neutral.800',
-        color: 'common.white',
-        width: 280
-      }
-    }}
-    sx={{ zIndex: 100 }}
-    variant="temporary"
-  >
+      open
+      variant="permanent"
+      PaperProps={{
+        sx: {
+          backgroundColor: 'background.default',
+          display: 'flex',
+          flexDirection: 'column',
+          height: `calc(100% - ${TOP_NAV_HEIGHT}px)`,
+          p: 1,
+          top: TOP_NAV_HEIGHT,
+          width: SIDE_NAV_WIDTH,
+          zIndex: 50
+        }
+      }}
+    >
     {content}
-  </Drawer>
-
+    </Drawer>
   );
 }
