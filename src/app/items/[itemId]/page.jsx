@@ -2,7 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 // import useAxios from "../../hooks/useAxios";
-import GetItem from '@/app/lib/getItem';
+import getItem from '@/app/lib/getItem';
+import getAllItems from '@/app/lib/getAllItems';
 import { useQuery } from "@tanstack/react-query";
 import DashboardLayout from '@/app/components/dashboard/layout';
 
@@ -15,12 +16,15 @@ export default function SingleItem({ params: { itemId } }) {
 //     return res.data.data
 // }
 
-const fetchItems = async() => {
-  const item = await GetItem(itemId)
+const fetchItem = async() => {
+  const item = await getItem(itemId)
   return item
 }
 
-  const { data = {} , isLoading, isError } = useQuery({queryKey: ['item'], queryFn: fetchItems})
+  const { data = {} , isLoading, isError } = useQuery({
+    queryKey: ['item'], 
+    queryFn: fetchItem
+  })
   const { item } = data
 
   const content = (
@@ -55,4 +59,19 @@ const fetchItems = async() => {
       {content}
     </DashboardLayout>
   );
+}
+
+export async function generateStaticParams() {
+  const fetchItems = await getAllItems();
+  
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { data = {} } = useQuery({
+    queryKey: ['items'], 
+    queryFn: fetchItems 
+  })
+  const { items } = data
+
+  return items.map(item => ({
+    itemId: item.slug
+  }));
 }

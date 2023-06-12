@@ -19,8 +19,33 @@ const fetchItems = async() => {
   return items
 }
 
-
-  const { data, isLoading, isError } = useQuery({
+  const { 
+    data,
+    dataUpdatedAt,
+    error,
+    errorUpdateCount,
+    errorUpdatedAt,
+    failureCount,
+    failureReason,
+    fetchStatus,
+    isError,
+    isFetched,
+    isFetchedAfterMount,
+    isFetching,
+    isInitialLoading,
+    isLoading,
+    isLoadingError,
+    isPaused,
+    isPlaceholderData,
+    isPreviousData,
+    isRefetchError,
+    isRefetching,
+    isStale,
+    isSuccess,
+    refetch,
+    remove,
+    status
+  } = useQuery({
     queryKey: ['items'], 
     queryFn: fetchItems, 
     keepPreviousData: true,
@@ -33,6 +58,7 @@ const fetchItems = async() => {
       <h1>Item Listing</h1>
 
       {/* { isLoading && <p>Loading...</p> } */}
+      {/* {status === "error" && <p>Error fetching data</p>} */}
 
     <ul>
       {
