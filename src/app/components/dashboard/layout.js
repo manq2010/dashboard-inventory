@@ -13,7 +13,7 @@ export default function Layout({ children }) {
       <div className='w-full flex-auto flex-col pt-[64px] pl-[200px]'>
         <div className='w-full flex-auto flex-col'>
           {children}
-          <Footer />
+      {/* <Footer /> */}
         </div>
       </div>
     </>

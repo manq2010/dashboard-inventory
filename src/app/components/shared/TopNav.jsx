@@ -19,7 +19,7 @@ export default function TopNav() {
             sx={{
                 backgroundColor: 'primary.dark',
                 color: 'common.white',
-                position: 'sticky',
+                position: 'fixed',
                 width: '100%',
                 zIndex: 100
                 }}
