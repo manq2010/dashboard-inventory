@@ -29,11 +29,18 @@ const fetchItems = async() => {
       item && (
         <div>
           <h1>Single Item</h1>
-          <h4>{ item.name}</h4>
-          <h3>{ item.category}</h3>
-          <p>{item.item_quantity }</p>
-          <p>{item.selling_price }</p>
-          <p>{item.buying_price }</p>
+          <h4>{ item.title}</h4>
+          <h3>{ item.description}</h3>
+          <p>{item.price }</p>
+          <p>{item.available }</p>
+          <p>{item.quantity }</p>
+          <p>{item.category }</p>
+          <p>{item.sku }</p>
+          <p>{item.tag }</p>
+          <p>{item.weight }</p>
+          <p>{item.tag }</p>
+          <p>{item.size }</p>
+          <p>{item.color }</p>
   
           <button type="button" onClick={() => router.push('/items')}>
           &larr; back to items

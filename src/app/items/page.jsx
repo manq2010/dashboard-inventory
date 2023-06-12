@@ -37,9 +37,9 @@ const fetchItems = async() => {
     <ul>
       {
         data && data?.items?.map((item) => (
-          <li key={item.id}>
-              <p onClick={() => router.push(`/items/${item.id}`)}>
-              {item.name}
+          <li key={item.slug}>
+              <p onClick={() => router.push(`/items/${item.slug}`)}>
+              {item.title}
               </p>
           </li>
         ))
