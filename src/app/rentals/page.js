@@ -2,7 +2,7 @@ import Link from 'next/link'
 import DashboardLayout from '@/app/components/dashboard/layout';
 
 export const metadata = {
-    title: 'rentals',
+    title: 'Rentals',
 }
 
 export default function RentalPage() {

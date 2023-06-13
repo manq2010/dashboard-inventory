@@ -6,6 +6,7 @@ import { useQuery } from "@tanstack/react-query";
 import DashboardLayout from '@/app/components/dashboard/layout';
 import getAllItems from '@/app/lib/getAllItems';
 
+
 export default function ItemsPage() {
 //   const { axios } = useAxios();
 
@@ -21,30 +22,6 @@ const fetchItems = async() => {
 
   const { 
     data,
-    dataUpdatedAt,
-    error,
-    errorUpdateCount,
-    errorUpdatedAt,
-    failureCount,
-    failureReason,
-    fetchStatus,
-    isError,
-    isFetched,
-    isFetchedAfterMount,
-    isFetching,
-    isInitialLoading,
-    isLoading,
-    isLoadingError,
-    isPaused,
-    isPlaceholderData,
-    isPreviousData,
-    isRefetchError,
-    isRefetching,
-    isStale,
-    isSuccess,
-    refetch,
-    remove,
-    status
   } = useQuery({
     queryKey: ['items'], 
     queryFn: fetchItems, 
