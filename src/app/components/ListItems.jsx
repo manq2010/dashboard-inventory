@@ -1,8 +1,9 @@
+'use client'
+
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
 export default function ListItems({ data }) {
-    // const { data } = params
     const router = useRouter();
   
     return (

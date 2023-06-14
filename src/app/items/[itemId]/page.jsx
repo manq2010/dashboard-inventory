@@ -1,77 +1,82 @@
-'use client'
-
-import { useRouter } from 'next/navigation';
-// import useAxios from "../../hooks/useAxios";
-import getItem from '@/app/lib/getItem';
-import getAllItems from '@/app/lib/getAllItems';
-import { useQuery } from "@tanstack/react-query";
 import DashboardLayout from '@/app/components/dashboard/layout';
+import getAllItems from '@/app/lib/getAllItems';
+import getItem from '@/app/lib/getItem';
+import Link from 'next/link';
+import Image from 'next/image';
 
-export default function SingleItem({ params: { itemId } }) {
-  // const { axios } = useAxios();
-  const router = useRouter();
-
-//   const fetchItems = async() => {
-//     const res = await axios.get(`/items/${params.itemId}`)
-//     return res.data.data
-// }
-
-const fetchItem = async() => {
-  const item = await getItem(itemId)
-  return item
+export async function  generateStaticParams() {
+  const  data = await getAllItems()
+  const { items } = data
+  return items.map((item) => ({
+    itemId: item.slug
+  }));
 }
 
-  const { data = {} , isLoading, isError } = useQuery({
-    queryKey: ['item'], 
-    queryFn: fetchItem
-  })
+export async function generateMetadata({ params: { itemId } }) {
+
+  const  data = await getAllItems()
+  const { items } = data
+
+  const item = items.find(item => item.slug === itemId)
+
+  if (!item) {
+      return {
+          title: 'Item Not Found'
+      }
+  }
+
+  return {
+      title: item.title,
+  }
+}
+
+export default async function SingleItem({ params: { itemId } }) {
+
+  const data = await getItem(itemId)
   const { item } = data
+
+  // const  dataItems = getAllItems()
+  // const { items } = await dataItems
+
+  // console.log("dataItems", items);
 
   const content = (
     <>
-    {
-      item && (
+      {item && (
         <div>
-          <h1>Single Item</h1>
-          <h4>{ item.title}</h4>
-          <h3>{ item.description}</h3>
-          <p>{item.price }</p>
-          <p>{item.available }</p>
-          <p>{item.quantity }</p>
-          <p>{item.category }</p>
-          <p>{item.sku }</p>
-          <p>{item.tag }</p>
-          <p>{item.weight }</p>
-          <p>{item.tag }</p>
-          <p>{item.size }</p>
-          <p>{item.color }</p>
+          <h1 className="text-3xl font-bold">Single Item</h1>
+          <h4 className="text-lg font-semibold">{item.title}</h4>
+          <h3 className="text-xl">{item.description}</h3>
+          <p>R {item.price}</p>
+          <p>Available: {item.available}</p>
+          <p>Quantity: {item.quantity}</p>
+          <p>Category: {item.category}</p>
+          <p>SKU: {item.sku}</p>
+          <p>Tag: {item.tag}</p>
+          <p>{item.weight} kg</p>
+          <p>{item.size}</p>
+          <p>Color: {item.color}</p>
   
-          <button type="button" onClick={() => router.push('/items')}>
-          &larr; back to items
-          </button>
+          <Image
+            priority
+            src={item.images[0].url}
+            alt="Item"
+            width={200}
+            height={200}
+            className="rounded"
+          />
+  
+          <Link href="/items" className="text-blue-500 mt-4 inline-block">
+            &larr; back to items
+          </Link>
         </div>
-      )
-    }
+      )}
     </>
-  )
+  );
+  
   return (
     <DashboardLayout>
-      {content}
+        {content}
     </DashboardLayout>
   );
-}
-
-export async function generateStaticParams() {
-  const fetchItems = await getAllItems();
-  
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { data = {} } = useQuery({
-    queryKey: ['items'], 
-    queryFn: fetchItems 
-  })
-  const { items } = data
-
-  return items.map(item => ({
-    itemId: item.slug
-  }));
 }
