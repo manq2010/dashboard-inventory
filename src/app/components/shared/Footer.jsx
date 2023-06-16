@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className='fixed bottom-0'>
         <a
           href="https://mancobasihlongonyane.onrender.com/"
           target="_blank"
