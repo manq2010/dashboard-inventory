@@ -1,3 +1,4 @@
+import Providers from "./Providers";
 import ReactQueryWrapper from './ReactQueryWrapper'
 import './styles/globals.css'
 import { Inter } from 'next/font/google'
@@ -9,13 +10,15 @@ export const metadata = {
   description: 'An inventory application',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children, session }) {
   return (
       <html lang="en">
         <body className={inter.className}>
-          <ReactQueryWrapper>
-            {children}
-          </ReactQueryWrapper>
+          <Providers >
+            <ReactQueryWrapper>
+              {children}
+            </ReactQueryWrapper>
+          </Providers>
           </body>
       </html>
   )
