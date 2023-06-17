@@ -52,7 +52,7 @@ export default function Login() {
       </div>
       <button
         disabled={formState.isSubmitting}
-        className="btn btn-primary"
+        className="btn btn-primary "
       >
         {formState.isSubmitting && (
           <span className="spinner-border spinner-border-sm me-1"></span>
@@ -60,8 +60,8 @@ export default function Login() {
         Login
       </button >
       <button
-      onClick={() => router.push('/auth/signup')}
-      className="btn btn-link">
+        onClick={() => router.push('/auth/signup')}
+        className="btn btn-link">
         Register
       </button>
     </form>

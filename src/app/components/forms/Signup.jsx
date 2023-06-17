@@ -5,17 +5,35 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 
-export default function Signup() {
+export default function SignUp() {
     const router = useRouter();
+
+    // define custom dictionary
+    Yup.setLocale({
+        mixed: {
+          default: 'field_invalid',
+        },
+        number: {
+          min: 'must be at least ${min} characters long ',
+        },
+      });
 
     // form validation rules 
     const validationSchema = Yup.object().shape({
         firstName: Yup.string()
-            .required('First Name is required'),
+            .required('First Name is required')
+            .min(3, 'must be at least 3 characters long'),
         lastName: Yup.string()
-            .required('Last Name is required'),
+            .required('Last Name is required')
+            .min(3),
         username: Yup.string()
-            .required('Username is required'),
+            .required('Username is required')
+            .min(3, 'must be at least 3 characters long')
+            .max(50, 'must be not more than 50 characters long'),
+        email: Yup.string()
+            .required('email is required')
+            .email('must be a valid email')
+            .lowercase(),
         password: Yup.string()
             .required('Password is required')
             .min(6, 'Password must be at least 6 characters')
@@ -47,6 +65,11 @@ export default function Signup() {
                 <label className="form-label">Last Name</label>
                 <input name="lastName" type="text" {...register('lastName')} className={`form-control ${errors.lastName ? 'is-invalid' : ''}`} />
                 <div className="invalid-feedback">{errors.lastName?.message}</div>
+            </div>
+            <div className="mb-3">
+                <label className="form-label">Email</label>
+                <input name="email" type="email" {...register('email')} className={`form-control ${errors.username ? 'is-invalid' : ''}`} />
+                <div className="invalid-feedback">{errors.email?.message}</div>
             </div>
             <div className="mb-3">
                 <label className="form-label">Username</label>
