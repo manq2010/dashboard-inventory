@@ -4,6 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { signIn } from 'next-auth/react';
 
 export default function SignUp() {
     const router = useRouter();
@@ -85,10 +86,12 @@ export default function SignUp() {
                 {formState.isSubmitting && <span className="spinner-border spinner-border-sm me-1"></span>}
                 Register
             </button>
+            <br />
             <button
                 onClick={() => router.push('/auth/login')}
+                // onClick={() => signIn()}
                 className="btn btn-link">
-                Cancel
+                login
             </button>
         </form>
     </div>

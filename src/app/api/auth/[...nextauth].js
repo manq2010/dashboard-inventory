@@ -17,7 +17,7 @@ export const authOptions = {
           password: { label: "Password", type: "password" }
         },
         async authorize(credentials, req) {
-            const { username, password, email } = credentials;
+            // const { username, password, email } = credentials;
             const res = await fetch("http://localhost:3000/login", {
               method: "POST",
               headers: {
@@ -42,8 +42,25 @@ export const authOptions = {
     // ...add more providers here
   ],
   
-  session: {
-    strategy: "jwt"
+  // session: {
+  //   strategy: "jwt"
+  // },
+
+  callbacks: {
+    async jwt({ token, user }) {
+      return { ...token, ...user };
+    },
+    async session({ session, token, user }) {
+      // Send properties to the client, like an access_token from a provider.
+      session.user = token;
+
+      return session;
+    },
+  },
+
+  pages: {
+    signIn: '/auth/login',
+    signUp: '/auth/signup',
   },
 }
 
