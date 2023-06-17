@@ -21,7 +21,12 @@ export default function Layout({ children }) {
       <Footer />
         </div>
     </div> */}
-     <Box
+
+        <main className='md:col-span-6 md:offset-3 mt-5'>
+            {children}
+        </main>
+      
+     {/* <Box
       component="main"
       sx={{
         display: 'flex',
@@ -60,7 +65,6 @@ export default function Layout({ children }) {
                 // width: 32
               }}
             >
-             {/* Logo */}
              <Image
             priority
             src="/images/profile.jpeg" 
@@ -126,7 +130,7 @@ export default function Layout({ children }) {
         </Grid>
       </Grid>
       <Footer />
-    </Box>
+    </Box> */}
     </>
   );
 }
