@@ -1,5 +1,6 @@
-import ListItems from '../../components/ListItems';
-import getAllItems from '../../lib/getAllItems';
+import ListItems from '@/app/components/tables/ListItems';
+import getAllItems from '@/app/lib/getAllItems';
+ListItems
 
 export const metadata = {
   title: 'Items',
