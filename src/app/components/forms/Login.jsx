@@ -1,6 +1,7 @@
 'use client'
 
 import { useRouter } from 'next/navigation';
+import { signIn } from "next-auth/react";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
@@ -10,10 +11,13 @@ export default function Login() {
 
      // form validation rules 
      const validationSchema = Yup.object().shape({
-        username: Yup.string()
-        .required('Username is required'),
+        email: Yup.string()
+        .required('email is required')
+        .email('must be a valid email')
+        .lowercase(),
         password: Yup.string()
         .required('Password is required')
+        .min(6, 'Password must be at least 6 characters')
     });
     const formOptions = { resolver: yupResolver(validationSchema) };
 
@@ -21,8 +25,15 @@ export default function Login() {
      const { register, handleSubmit, formState } = useForm(formOptions);
      const { errors } = formState;
 
-     function onSubmit({ username, password }) {
-       
+    //  function onSubmit({ email, password }) {
+      function  onSubmit({email, password}) {
+      
+       signIn("credentials", {
+        email: email,
+        password: password,
+        redirect: true,
+        callbackUrl: "/",
+      });
         return (<>
         </>);
     }
@@ -33,14 +44,14 @@ export default function Login() {
   <div className="card-body">
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
-        <label className="form-label">Username</label>
+        <label className="form-label">Email</label>
         <input
-          name="username"
-          type="text"
-          {...register('username')}
-          className={`form-control ${errors.username ? 'is-invalid' : ''}`}
+          name="email"
+          type="email"
+          {...register('email')}
+          className={`form-control ${errors.email ? 'is-invalid' : ''}`}
         />
-        <div className="invalid-feedback">{errors.username?.message}</div>
+        <div className="invalid-feedback">{errors.email?.message}</div>
       </div>
       <div className="mb-3">
         <label className="form-label">Password</label>
@@ -61,11 +72,11 @@ export default function Login() {
         )}
         Login
       </button >
-      <button
+      <span
         onClick={() => router.push('/auth/signup')}
         className="btn btn-link">
         Register
-      </button>
+      </span>
     </form>
   </div>
 </div>

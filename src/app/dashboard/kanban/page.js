@@ -1,15 +1,14 @@
 import Link from 'next/link'
 
-
 export const metadata = {
-    title: 'Chat',
+  title: 'Kanban',
 }
 
-export default function ChatPage() {
+export default function KanbanPage() {
   return (
     <>
       <h3>
-        Chat page
+        Kanban Board page
       </h3> 
 
       <Link href="/">&larr; Back Home</Link>

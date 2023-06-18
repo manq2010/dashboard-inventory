@@ -10,7 +10,7 @@ export const metadata = {
   description: 'An inventory application',
 }
 
-export default function RootLayout({ children, session }) {
+export default function RootLayout({ children }) {
   return (
       <html lang="en">
         <body className={inter.className}>

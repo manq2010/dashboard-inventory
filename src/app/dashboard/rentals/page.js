@@ -1,15 +1,14 @@
 import Link from 'next/link'
 
-
 export const metadata = {
-    title: 'Chat',
+    title: 'Rentals',
 }
 
-export default function ChatPage() {
+export default function RentalPage() {
   return (
     <>
       <h3>
-        Chat page
+        Rentals page
       </h3> 
 
       <Link href="/">&larr; Back Home</Link>

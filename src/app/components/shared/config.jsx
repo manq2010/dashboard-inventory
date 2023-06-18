@@ -19,7 +19,7 @@ import {
 export const items = [
   {
     title: 'Overview',
-    path: '/',
+    path: '/dashboard',
     icon: (
 
         <ChartBarIcon className="h-6 w-6"/>
@@ -28,56 +28,56 @@ export const items = [
   },
   {
     title: 'Analytics',
-    path: '/analytics',
+    path: '/dashboard/analytics',
     icon: (
         <ChartPieIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Customers',
-    path: '/customers',
+    path: '/dashboard/customers',
     icon: (
         <UserGroupIcon className="h-6 w-6"/>
     )
   },
   {
       title: 'Items',
-      path: '/items',
+      path: '/dashboard/items',
       icon: (
         <ShoppingBagIcon className="h-6 w-6"/>
     )
 },
 {
   title: 'Rentals',
-  path: '/rentals',
+  path: '/dashboard/rentals',
   icon: (
       <QueueListIcon className="h-6 w-6"/>
   )
 },
   {
     title: 'Account',
-    path: '/account',
+    path: '/dashboard/account',
     icon: (
         <UserIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Orders',
-    path: '/orders',
+    path: '/dashboard/orders',
     icon: (
         <ReceiptPercentIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Invoices',
-    path: '/invoices',
+    path: '/dashboard/invoices',
     icon: (
         <BanknotesIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Logistics',
-    path: '/logistics',
+    path: '/dashboard/logistics',
     icon: (
         <TruckIcon className="h-6 w-6"/>
     )
@@ -91,21 +91,21 @@ export const items = [
   },
   {
     title: 'Kanban',
-    path: '/kanban',
+    path: '/dashboard/kanban',
     icon: (
         <BookOpenIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Chat',
-    path: '/chat',
+    path: '/dashboard/chat',
     icon: (
         <ChatBubbleLeftRightIcon className="h-6 w-6"/>
     )
   },
   {
     title: 'Calender',
-    path: '/calender',
+    path: '/dashboard/calender',
     icon: (
         <CalendarDaysIcon className="h-6 w-6"/>
     )
