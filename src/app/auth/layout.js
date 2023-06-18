@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
-import Footer from "../components/shared/Footer";
+// import Footer from "@app/components/shared/Footer";
 import { 
     Box, 
     Typography, 

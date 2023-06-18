@@ -1,4 +1,4 @@
-import AuthLayout from '@/app/components/auth/layout';
+// import AuthLayout from '@/app/components/auth/layout';
 import Signup from '@/app/components/forms/Signup';
 // import { useSession } from 'next-auth/react';
 import Link from 'next/link';
@@ -9,8 +9,8 @@ export const metadata = {
 
 export default function SignUpPage() {
   return (
-    <AuthLayout>
+    <>
       <Signup />
-    </AuthLayout>
+    </>
   );
 }

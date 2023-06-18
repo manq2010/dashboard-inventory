@@ -32,7 +32,7 @@ export const authOptions = ({
       
               const user = await res.json();
       
-              console.log({ user });
+              console.log("user: raila:", { user });
       
               if (res.ok && user) {
                 return user;
@@ -58,9 +58,16 @@ export const authOptions = ({
       },
     },
   
+    // pages: {
+    //   signIn: '/auth/login',
+    // },
     pages: {
       signIn: '/auth/login',
-    },
+      signOut: '/auth/signout',
+      error: '/auth/error', // Error code passed in query string as ?error=
+      verifyRequest: '/auth/verify-request', // (used for check email message)
+      newUser: '/auth/new-user' // New users will be directed here on first sign in (leave the property out if not of interest)
+    }
   })
 
 const handler = NextAuth(authOptions)
