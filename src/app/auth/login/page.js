@@ -1,4 +1,4 @@
-import Login from '@/app/components/forms/Login';
+import Login from '@/components/forms/Login';
 // import Link from 'next/link';
 
 export const metadata = {

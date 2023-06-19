@@ -1,5 +1,5 @@
-import getAllItems from '@/app/lib/getAllItems';
-import getItem from '@/app/lib/getItem';
+import getAllItems from '@/lib/getAllItems';
+import getItem from '@/lib/getItem';
 import Link from 'next/link';
 import Image from 'next/image';
 

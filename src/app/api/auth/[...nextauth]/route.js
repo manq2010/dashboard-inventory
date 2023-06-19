@@ -16,7 +16,7 @@ export const authOptions = ({
         //     password: { label: "Password", type: "password" }
         //   },
           async authorize(credentials, req) {
-              const { password, email } = credentials;
+              const { password, username } = credentials;
               console.log("credentials:", credentials);
               const res = await fetch("http://localhost:3000/auth/login", {
                 method: "POST",
@@ -25,8 +25,9 @@ export const authOptions = ({
                 },
                 body: JSON.stringify({
                   // username: credentials?.username,
-                  email: email,
+                  email: username,
                   password: password,
+
                 }),
               });
 

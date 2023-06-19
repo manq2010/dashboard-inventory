@@ -1,5 +1,5 @@
 // import AuthLayout from '@/app/components/auth/layout';
-import Signup from '@/app/components/forms/Signup';
+import Signup from '@/components/forms/Signup';
 // import { useSession } from 'next-auth/react';
 import Link from 'next/link';
 

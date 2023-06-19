@@ -1,5 +1,5 @@
-import ListItems from '@/app/components/tables/ListItems';
-import getAllItems from '@/app/lib/getAllItems';
+import ListItems from '@/components/tables/ListItems';
+import getAllItems from '@/lib/getAllItems';
 ListItems
 
 export const metadata = {

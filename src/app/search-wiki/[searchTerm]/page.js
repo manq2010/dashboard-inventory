@@ -1,7 +1,7 @@
 // 'use client'
 
 // import { useRouter } from 'next/navigation';
-import getWikiResults from "@/app/lib/getWikiResults";
+import getWikiResults from "@/lib/getWikiResults";
 // import { useQuery } from "@tanstack/react-query";
 
 import Item from "./item";

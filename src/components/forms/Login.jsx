@@ -29,7 +29,7 @@ export default function Login() {
       function  onSubmit({email, password}) {
       
        signIn("credentials", {
-        email: email,
+        username: email,
         password: password,
         redirect: true,
         callbackUrl: "/dashboard",
