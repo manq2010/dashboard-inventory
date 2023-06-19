@@ -6,6 +6,7 @@ import {
     Box, 
     Stack,
  } from '@mui/material';
+import SignInButton from './SignInButton';
 
 const TOP_NAV_HEIGHT = 64;
 
@@ -42,7 +43,7 @@ export default function TopNav() {
                     </Avatar>
                 </Link>
             </Stack>
-            <Stack alignItems="center" direction="row" spacing={3}>
+            {/* <Stack alignItems="center" direction="row" spacing={3}>
                 <Image
                 priority
                 src="/images/profile.jpeg" 
@@ -51,7 +52,8 @@ export default function TopNav() {
                 height={50} 
                 className="flex-none rounded-lg bg-slate-100"
                 />
-            </Stack>
+            </Stack> */}
+            <SignInButton />
         </Stack>
     </Box>
     </>

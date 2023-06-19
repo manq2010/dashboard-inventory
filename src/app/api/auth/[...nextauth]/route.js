@@ -29,10 +29,13 @@ export const authOptions = ({
                   password: password,
                 }),
               });
-      
+
+              const token = res.headers.get("Authorization");
+              console.log("user: token:", token);
+
               const user = await res.json();
       
-              console.log("user: raila:", { user });
+              console.log("user: rails:", { user });
       
               if (res.ok && user) {
                 return user;
