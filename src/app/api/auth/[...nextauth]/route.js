@@ -16,31 +16,39 @@ export const authOptions = ({
         //     password: { label: "Password", type: "password" }
         //   },
           async authorize(credentials, req) {
-              const { password, username } = credentials;
-              console.log("credentials:", credentials);
-              const res = await fetch("http://localhost:3000/auth/login", {
+              const { password, email } = credentials;
+              // console.log("credentials:", credentials);
+
+              const user = {
+                email: email,
+                password: password,
+            };
+            
+            const requestBody = {
+                user: user
+            };
+
+              const res = await fetch("http://localhost:4000/api/v1/auth/login", {
+                // credentials: 'include',
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
                 },
-                body: JSON.stringify({
-                  // username: credentials?.username,
-                  email: username,
-                  password: password,
-
-                }),
+                body: JSON.stringify(requestBody),
               });
 
               const token = res.headers.get("Authorization");
               console.log("user: token:", token);
 
-              const user = await res.json();
-      
-              console.log("user: rails:", { user });
+              const results = await res.json();
+              console.log("user: rails:", results);
       
               if (res.ok && user) {
                 return user;
               } else return null;
+
+              // return user;
+              // return { name: "my name"}
           }
         })
       // ...add more providers here

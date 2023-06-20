@@ -1,8 +1,8 @@
 'use client'
 
-import SideNav from '../../components/shared/SideNav';
-import Footer from '../../components/shared/Footer';
-import TopNav from '../../components/shared/TopNav';
+import SideNav from '../../../components/shared/SideNav';
+import Footer from '../../../components/shared/Footer';
+import TopNav from '../../../components/shared/TopNav';
 
 export default function Layout({ children }) {
   return (

@@ -25,17 +25,13 @@ export default function Login() {
      const { register, handleSubmit, formState } = useForm(formOptions);
      const { errors } = formState;
 
-    //  function onSubmit({ email, password }) {
-      function  onSubmit({email, password}) {
-      
+    function onSubmit({email, password}) {
        signIn("credentials", {
-        username: email,
+        email: email,
         password: password,
         redirect: true,
         callbackUrl: "/dashboard",
       });
-        return (<>
-        </>);
     }
 
   return (

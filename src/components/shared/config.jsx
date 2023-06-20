@@ -27,6 +27,13 @@ export const items = [
     )
   },
   {
+    title: 'Users',
+    path: '/dashboard/user',
+    icon: (
+        <UserPlusIcon className="h-6 w-6"/>
+    )
+  },
+  {
     title: 'Analytics',
     path: '/dashboard/analytics',
     icon: (
