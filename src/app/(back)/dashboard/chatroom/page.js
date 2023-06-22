@@ -1,4 +1,4 @@
-import Rooms from '@/components/rooms/Rooms';
+import ChatRoom from '@/components/rooms/Rooms';
 import getAllRooms from '@/lib/getAllRooms';
 
 export const metadata = {
@@ -13,9 +13,11 @@ export default async function ChatRoomPage() {
 
   return (
     <div className='flex justify-center items-center w-full text-xl'>
-       <h3>
-        Chatroom page
-      </h3>
+       {/* <h3>
+        Chatroom page entry
+      </h3> */}
+
+      <ChatRoom />
 
       {/* <Rooms data={data}/> */}
    </div>
