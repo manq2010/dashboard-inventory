@@ -1,22 +1,20 @@
-import getAllUsers from '@/lib/getAllUsers';
+import Users from "@/components/users/Users";
+import getAllUsers from "@/lib/getAllUsers";
 
 export const metadata = {
   title: 'Users',
 }
 
 export default async function UsersPage() {
-  const data = await getAllUsers();
-  return (
-    <div>
 
-      <h1>Users</h1>
-        {/* <ul>
-          {data?.map((user) =>
-          <li key={user.id}>
-            {user.username}
-          </li>
-          )}
-        </ul> */}
-    </div>
+  const data = await getAllUsers()
+  return (
+    <>
+      <h3>
+        Users page
+      </h3>
+
+     <Users data={data}/>
+    </>
   );
 }

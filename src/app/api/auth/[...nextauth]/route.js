@@ -1,35 +1,33 @@
 import NextAuth from "next-auth"
-import CredentialsProvider from "next-auth/providers/credentials";
+import CredentialsProvider from "next-auth/providers/credentials"
 
 export const authOptions = ({
     // Configure one or more authentication providers
     providers: [
       CredentialsProvider({
-          // The name to display on the sign in form (e.g. "Sign in with...")
-          name: "Credentials",
-          // `credentials` is used to generate a form on the sign in page.
-          // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-          // e.g. domain, username, password, 2FA token, etc.
-          // You can pass any HTML attribute to the <input> tag through the object.
-        //   credentials: {
-        //     email: { label: "Email", type: "email", placeholder: "jsmith@inventory.com" },
-        //     password: { label: "Password", type: "password" }
-        //   },
-          async authorize(credentials, req) {
-              const { password, email } = credentials;
-              // console.log("credentials:", credentials);
+        //   // The name to display on the sign in form (e.g. "Sign in with...")
+        //   name: "Credentials",
+        //   // `credentials` is used to generate a form on the sign in page.
+        //   // You can specify which fields should be submitted, by adding keys to the `credentials` object.
+        //   // e.g. domain, username, password, 2FA token, etc.
+        //   // You can pass any HTML attribute to the <input> tag through the object.
+        // //   credentials: {
+        // //     email: { label: "Email", type: "email", placeholder: "jsmith@inventory.com" },
+        // //     password: { label: "Password", type: "password" }
+        // //   },
+          async authorize(credentials) {
+            const { password, email } = credentials;
 
-              const user = {
+            const user_body = {
                 email: email,
                 password: password,
             };
             
             const requestBody = {
-                user: user
+                user: user_body
             };
 
-              const res = await fetch("http://localhost:4000/api/v1/auth/login", {
-                // credentials: 'include',
+              const authResponse = await fetch("http://localhost:4000/api/v1/auth/login", {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",
@@ -37,18 +35,26 @@ export const authOptions = ({
                 body: JSON.stringify(requestBody),
               });
 
-              const token = res.headers.get("Authorization");
-              console.log("user: token:", token);
-
-              const results = await res.json();
-              console.log("user: rails:", results);
+              // console.log("user: token:", token);
+              
+              // const results = await authResponse.json();
+              // console.log("user: rails:", results);
       
-              if (res.ok && user) {
-                return user;
-              } else return null;
+              // if (res.ok && user) {
+              //   return user;
+              // } else return null;
 
               // return user;
               // return { name: "my name"}
+              
+              if (!authResponse.ok) {
+                return null
+              }
+              
+              const token = authResponse.headers.get("Authorization");
+              const user = await authResponse.json()
+      
+              return user
           }
         })
       // ...add more providers here

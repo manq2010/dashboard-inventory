@@ -27,8 +27,15 @@ export const items = [
     )
   },
   {
+    title: 'Chatroom',
+    path: '/dashboard/chatroom',
+    icon: (
+        <ChatBubbleLeftRightIcon className="h-6 w-6"/>
+    )
+  },
+  {
     title: 'Users',
-    path: '/dashboard/user',
+    path: '/dashboard/users',
     icon: (
         <UserPlusIcon className="h-6 w-6"/>
     )
@@ -101,13 +108,6 @@ export const items = [
     path: '/dashboard/kanban',
     icon: (
         <BookOpenIcon className="h-6 w-6"/>
-    )
-  },
-  {
-    title: 'Chat',
-    path: '/dashboard/chat',
-    icon: (
-        <ChatBubbleLeftRightIcon className="h-6 w-6"/>
     )
   },
   {
