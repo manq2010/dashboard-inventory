@@ -15,7 +15,7 @@ export default function ChatRoom() {
         if (!channel && cable ) {
         const chnl = cable.subscriptions.create(
           {
-            channel: "message_channel"
+            channel: "RoomsChannel"
             // id: props.chat.id,
           },
           {
@@ -26,7 +26,7 @@ export default function ChatRoom() {
               console.log("RoomsChannel disconnected!");
             },
             received: (data) => {
-              console.log(data);
+              console.log("room channel data:", data);
             },
           }
         );

@@ -1,5 +1,6 @@
-import ChatRoom from '@/components/rooms/Rooms';
+import ChatRoom from '@/components/rooms/RoomsCopy';
 import getAllRooms from '@/lib/getAllRooms';
+// ChatRoom
 
 export const metadata = {
     title: 'Chatroom',
