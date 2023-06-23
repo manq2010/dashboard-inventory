@@ -6,7 +6,7 @@ import { ActionCableContext } from '@/providers/ActionCableProvider'
 
 export default function ChatRoom() {
   const cable = useContext(ActionCableContext);
-    console.log("room cable", cable);
+
     // const cable = useContext(ActionCableContext);
     const [channel, setChannel] = useState(null);
 

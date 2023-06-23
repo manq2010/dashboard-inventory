@@ -14,8 +14,6 @@ export default async function AccountPage() {
     redirect('/auth/login?callbackUrl=/dashboard/account')
   }
 
-  console.log(session);
-
   return (
     <section className='py-24'>
 

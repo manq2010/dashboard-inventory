@@ -5,7 +5,6 @@ const { useRouter } = require("next/navigation")
 export default function Users({ data }) {
   const router = useRouter()
 
-  console.log(data);
   return (
     <div className="p-3 mt-6 relative overflow-x-auto">
     <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

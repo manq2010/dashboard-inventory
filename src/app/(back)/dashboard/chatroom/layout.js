@@ -1,5 +1,5 @@
 // import RoomProvider from "@/contexts/RoomContext";
-import RoomSideBar from "@/components/rooms/RoomSideBar";
+// import RoomSideBar from "@/components/rooms/RoomSideBar";
 // import SocketProvider from "@/contexts/SocketContext";
 
 export default function RoomLayout({ children }) {
@@ -7,7 +7,7 @@ export default function RoomLayout({ children }) {
     // <RoomProvider>
     //   <SocketProvider>
         <div className="flex h-screen">
-          <RoomSideBar />
+          {/* <RoomSideBar /> */}
           {children}
         </div>
     //   </SocketProvider>

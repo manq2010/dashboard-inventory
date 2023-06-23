@@ -1,19 +1,21 @@
 'use client'
 
+const { useRouter } = require("next/navigation")
 import { useEffect } from "react";
 // import { ActionCableContext } from "@/src/providers/actionCableProvider";
 // import { ActionCableContext } from '@/providers/ActionCableProvider'
 import {createConsumer} from '@rails/actioncable';
 
 
-export default function ChatRoom() {
+export default function ChatRoom({data}) {
+  const router = useRouter()
+  console.log("room data:", data);
+
   // const cable = useContext(ActionCableContext);
   // const cable = useContext(ActionCableContext);
   // const [channel, setChannel] = useState(null);
 
   const cable = createConsumer("ws://localhost:4000/cable");
-  
-  console.log("room cable", cable);
 
   const createSubscription = () => {
 

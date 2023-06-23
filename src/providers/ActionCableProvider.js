@@ -14,7 +14,6 @@ export default function ActionCableProvider({ children }) {
         return createConsumer;
       };
 
-      console.log("session", session?.user);
     
       useEffect(() => {
         // typeof window !== "undefined" && session?.user && session?.user?.accessToken && CableApp.cable === undefined

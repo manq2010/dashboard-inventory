@@ -1,5 +1,5 @@
 import Providers from '@/providers/Providers'
-import ActionCableProvider from '@/providers/ActionCableProvider'
+// import ActionCableProvider from '@/providers/ActionCableProvider'
 import ReactQueryWrapper from './ReactQueryWrapper'
 import './styles/globals.css'
 import { Inter } from 'next/font/google'
@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
       <html lang="en" className="h-full scroll-smooth antialiased">
         <body className={`${inter.className} h-full flex flex-col`}>
           <Providers >
-          <ActionCableProvider>
+          {/* <ActionCableProvider> */}
             <ReactQueryWrapper>
               {children}
             </ReactQueryWrapper>
-            </ActionCableProvider>
+            {/* </ActionCableProvider> */}
           </Providers>
           </body>
       </html>

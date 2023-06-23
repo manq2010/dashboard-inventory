@@ -49,7 +49,6 @@ export default function SignUp() {
     async function onSubmit({firstName, lastName, email, username, password }) {
         // console.log("user sign-up input", user);
         const data = await registerUser({firstName, lastName, email, username, password })
-        console.log("user sign-up output", data);
 
         return (
             <>

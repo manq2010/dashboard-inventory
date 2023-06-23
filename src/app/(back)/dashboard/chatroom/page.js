@@ -1,6 +1,9 @@
-import ChatRoom from '@/components/rooms/RoomsCopy';
-import getAllRooms from '@/lib/getAllRooms';
-// ChatRoom
+import ChatRoom from '@/components/rooms/Rooms';
+// import { redirect } from 'next/navigation';
+// import { getServerSession } from 'next-auth';
+// import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import getCurrentUser from '@/lib/getCurrentUser';
+
 
 export const metadata = {
     title: 'Chatroom',
@@ -8,9 +11,15 @@ export const metadata = {
 
 export default async function ChatRoomPage() {
 
-  const data = await getAllRooms();
+  // const session = await getServerSession(authOptions)
 
-  console.log(data);
+  // if (!session) {
+  //   redirect('/auth/login?callbackUrl=/dashboard/chatroom')
+  // }
+
+  const data  = await getCurrentUser();
+  console.log("current: user: data :", data);
+
 
   return (
     <div className='flex justify-center items-center w-full text-xl'>
@@ -18,7 +27,7 @@ export default async function ChatRoomPage() {
         Chatroom page entry
       </h3> */}
 
-      <ChatRoom />
+      <ChatRoom  data={data}/>
 
       {/* <Rooms data={data}/> */}
    </div>
